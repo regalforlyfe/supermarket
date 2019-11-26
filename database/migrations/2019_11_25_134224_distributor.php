@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Kasir extends Migration
+class distributor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class Kasir extends Migration
      */
     public function up()
     {
-        Schema::create('kasir', function (Blueprint $table) {
-            $table->bigIncrements('id_kasir');
-            $table->string('nama');
+        Schema::create('distributor', function (Blueprint $table) {
+            $table->bigIncrements('id_distributor');
+            $table->string('nama_distributor');
             $table->string('alamat');
             $table->string('telepon');
             
@@ -30,6 +30,6 @@ class Kasir extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kasir');
+        Schema::dropIfExists('distributor');
     }
 }
