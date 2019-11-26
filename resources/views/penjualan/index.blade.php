@@ -30,8 +30,8 @@
                             @foreach($penjualan as $value)
                         <tr>
                             <td>{{$value->id_penjualan}}</td>
-                            <td>{{$value->id_barang}}</td>
-                            <td>{{$value->id_kasir}}</td>
+                            <td>{{$value->nama}}</td>
+                            <td>{{$value->nama_kasir}}</td>
                             <td>{{$value->jumlah}}</td>
                             <td>{{$value->total}}</td>
                             <td>{{$value->created_at}}</td>

@@ -28,8 +28,8 @@
                             @foreach($pasok as $value)
                         <tr>
                             <td>{{$value->id_pasok}}</td>
-                            <td>{{$value->id_distributor}}</td>
-                            <td>{{$value->id_barang}}</td>
+                            <td>{{$value->nama_distributor}}</td>
+                            <td>{{$value->nama}}</td>
                             <td>{{$value->jumlah}}</td>
                             <td width="1">
                             <div class="btn-group">

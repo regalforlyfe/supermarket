@@ -15,10 +15,10 @@ class Kasir extends Migration
     {
         Schema::create('kasir', function (Blueprint $table) {
             $table->bigIncrements('id_kasir');
-            $table->string('nama');
+            $table->string('nama_kasir');
             $table->string('alamat');
             $table->string('telepon');
-            
+
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@
                             @foreach($kasir as $value)
                         <tr>
                             <td>{{$value->id_kasir}}</td>
-                            <td>{{$value->nama}}</td>
+                            <td>{{$value->nama_kasir}}</td>
                             <td>{{$value->alamat}}</td>
                             <td>{{$value->telepon}}</td>
                             <td width="1">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Pasok;
 
 class PasokController extends Controller
@@ -14,8 +15,13 @@ class PasokController extends Controller
      */
     public function index()
     {
+        $list = DB::table('pasok')
+            ->join('barang', 'pasok.id_barang', '=', 'barang.id_barang')
+            ->join('distributor', 'pasok.id_distributor', '=', 'distributor.id_distributor')
+            ->get();
         $data = Pasok::all();
-        return view('pasok.index')->with('pasok', $data);
+
+        return view('pasok.index')->with('pasok', $list);
     }
 
     /**

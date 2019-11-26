@@ -23,7 +23,7 @@ use Illuminate\Support\Str;
 
 $factory->define(Kasir::class, function (Faker $faker) {
     return [
-        'nama' => $faker->name,
+        'nama_kasir' => $faker->name,
         'alamat' => $faker->address,
         'telepon' => $faker->phoneNumber,
     ];

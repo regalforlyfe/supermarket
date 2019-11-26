@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Penjualan;
 
 class PenjualanController extends Controller
@@ -14,10 +15,16 @@ class PenjualanController extends Controller
      */
     public function index()
     {
-        $data = Penjualan::all();
-        return view('penjualan.index')->with('penjualan', $data);
-    }
+        $list = DB::table('penjualan')
+        ->join('barang', 'penjualan.id_barang', '=', 'barang.id_barang')
+        ->join('kasir', 'penjualan.id_kasir', '=', 'kasir.id_kasir')
+        ->get();
 
+        $data = Penjualan::all();
+        return view('penjualan.index')->with('penjualan', $list);
+        // dump($data);
+    }
+    
     /**
      * Show the form for creating a new resource.
      *

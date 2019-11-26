@@ -9,7 +9,7 @@ class Kasir extends Model
     protected $table = 'kasir';
 
     protected $primaryKey = "id_kasir";
-    protected $fillable= ['nama','alamat','telepon',];
+    protected $fillable= ['nama_kasir','alamat','telepon',];
 
-    public $timestamps = false;
+    // public $timestamps = false;
 }
