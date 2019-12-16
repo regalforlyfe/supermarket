@@ -39,7 +39,7 @@ $factory->define(Pasok::class, function (Faker $faker) {
 
 $factory->define(Barang::class, function (Faker $faker) {
     return [
-        'nama' => $faker->name,
+        'nama_barang' => $faker->name,
         'stok' => $faker->numberBetween(1,50),
         'hargaPokok' => $faker->numberBetween(10000,50000),
         'hargaJual' => $faker->numberBetween(10000,50000),
