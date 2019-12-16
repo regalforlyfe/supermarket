@@ -7,11 +7,8 @@
                 <i class="fas fa-table"></i>
                 Data Table Distributor</div>
                 <div class="card-body">
-                <a href="/distributor/add" class="float-right btn btn-primary">Tambah</a>
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
-                  </p>
+                <a href="/distributor/add" class="float-left btn btn-primary">Tambah</a>
+                  
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -37,12 +34,11 @@
                             </div>
                             </td>
                             <td width="1">
-                            <!-- <form action="" method="POST">
+                            <form action="{{route('distributor.destroy', $value->id_distributor)}}" method="POST">
                                 @csrf
-                                @method('DELETE') -->
-                                <a href="/distributor/delete/{{ $value->id_distributor }}" class="btn btn-danger btn-sm far fa-delete"></a>
-                                
-                            <!-- </form> -->
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm far fa-trash-alt" type="submit"></button>    
+                            </form>
                             </td>
                         </tr>
                             @endforeach

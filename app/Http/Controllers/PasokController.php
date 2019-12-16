@@ -31,7 +31,7 @@ class PasokController extends Controller
      */
     public function create()
     {
-        //
+        return view('pasok.create');
     }
 
     /**
@@ -42,7 +42,16 @@ class PasokController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'jumlah'=>'required',
+        ]);
+        $pasok = new Post([
+            'jumlah' => $request->input('jumlah'),
+            'id_distributor' => $request->input('id_distributor'),
+            'id_barang' => $request->input('id_barang'),
+        ]);
+        $pasok->save();
+        return redirect('post');
     }
 
     /**
@@ -64,7 +73,8 @@ class PasokController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Pasok::where('id_pasok', '=', $id)->firstOrFail();
+        return view('pasok.edit')->with('pasok', $data);
     }
 
     /**
@@ -76,7 +86,14 @@ class PasokController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'jumlah'=>'required',
+        ]);
+        $data = [
+            'jumlah' => $request->jumlah,
+        ];
+        Kategori::where('id_pasok', $id)->update($data);
+        return redirect('pasok');
     }
 
     /**
@@ -87,6 +104,7 @@ class PasokController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pasok::where('id_pasok',$id)->delete();
+        return redirect('pasok');
     }
 }

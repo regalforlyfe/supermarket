@@ -5,13 +5,10 @@
             <div class="card mb-3">
                 <div class="card-header">
                 <i class="fas fa-table"></i>
-                Data Table Kategori</div>
+                Data Table Pasok</div>
                 <div class="card-body">
-                <a href="" class="float-right btn btn-primary">Tambah</a>
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
-                  </p>
+                <a href="" class="float-left btn btn-primary">Tambah</a>
+                  
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -33,11 +30,11 @@
                             <td>{{$value->jumlah}}</td>
                             <td width="1">
                             <div class="btn-group">
-                                <a href="" class="btn btn-success btn-sm far fa-edit"></a>
+                                <a href="{{route('pasok.edit', $value->id_pasok)}}" class="btn btn-success btn-sm far fa-edit"></a>
                             </div>
                             </td>
                             <td width="1">
-                            <form action="" method="POST">
+                            <form action="{{route('pasok.destroy', $value->id_pasok)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger btn-sm far fa-trash-alt" type="submit"></button>

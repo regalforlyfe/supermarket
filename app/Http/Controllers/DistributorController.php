@@ -82,7 +82,18 @@ class DistributorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_distributor'=>'required',
+            'alamat'=>'required',
+            'telepon'=>'required',
+        ]);
+        $data = [
+            'nama_distributor' => $request->nama_distributor,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+        ];
+        Distributor::where('id_distributor', $id)->update($data);
+        return redirect('distributor');
     }
 
     /**
@@ -93,8 +104,7 @@ class DistributorController extends Controller
      */
     public function destroy($id)
     {
-        $distributor = Distributor::find($id);
-        $distributor->delete();
-        return redirect("/distributor");
+        Distributor::where('id_distributor',$id)->delete();
+        return redirect('distributor');
     }
 }
