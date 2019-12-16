@@ -7,7 +7,7 @@
                 <i class="fas fa-table"></i>
                 Data Table Distributor</div>
                 <div class="card-body">
-                <a href="" class="float-right btn btn-primary">Tambah</a>
+                <a href="/distributor/add" class="float-right btn btn-primary">Tambah</a>
                   <h4 class="card-title">Basic Table</h4>
                   <p class="card-description">
                     Add class <code>.table</code>
@@ -33,15 +33,16 @@
                             <td>{{$value->telepon}}</td>
                             <td width="1">
                             <div class="btn-group">
-                                <a href="" class="btn btn-success btn-sm far fa-edit"></a>
+                                <a href="/distributor/edit/{{ $value->id_distributor }}" class="btn btn-success btn-sm far fa-edit"></a>
                             </div>
                             </td>
                             <td width="1">
-                            <form action="" method="POST">
+                            <!-- <form action="" method="POST">
                                 @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger btn-sm far fa-trash-alt" type="submit"></button>
-                            </form>
+                                @method('DELETE') -->
+                                <a href="/distributor/delete/{{ $value->id_distributor }}" class="btn btn-danger btn-sm far fa-delete"></a>
+                                
+                            <!-- </form> -->
                             </td>
                         </tr>
                             @endforeach
