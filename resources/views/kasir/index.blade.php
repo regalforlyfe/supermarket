@@ -7,11 +7,8 @@
                 <i class="fas fa-table"></i>
                 Data Table Kategori</div>
                 <div class="card-body">
-                <a href="" class="float-right btn btn-primary">Tambah</a>
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
-                  </p>
+                <a href="{{route('kasir.create')}}" class="float-left btn btn-primary">Tambah</a>
+
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -33,11 +30,11 @@
                             <td>{{$value->telepon}}</td>
                             <td width="1">
                             <div class="btn-group">
-                                <a href="" class="btn btn-success btn-sm far fa-edit"></a>
+                                <a href="{{route('kasir.edit',$value->id_kasir)}}" class="btn btn-success btn-sm far fa-edit"></a>
                             </div>
                             </td>
                             <td width="1">
-                            <form action="" method="POST">
+                            <form action="{{route('kasir.destroy',$value->id_kasir)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger btn-sm far fa-trash-alt" type="submit"></button>

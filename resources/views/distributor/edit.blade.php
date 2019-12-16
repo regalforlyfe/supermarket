@@ -8,12 +8,12 @@
                 <i class="fas fa-table"></i>
                 Edit Distributor</div>
                 <div class="card-body">
-                    <form action="{{route('distributor.update',$distributor->id_distributor,$distributor->nama_distributor, $distributor->alamat, $distributor->telepon)}}" method="POST">
+                    <form action="{{route('distributor.update',$distributor->id_distributor)}}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
                             <label>Nama Distributor</label>
-                            <input type ="text" name="nama" value="{{$distributor->nama_distributor}}" class="form-control" placeholder=".....">
+                            <input type ="text" name="nama_distributor" value="{{$distributor->nama_distributor}}" class="form-control" placeholder=".....">
                             <label>Alamat</label>
                             <input type ="text" name="alamat" value="{{$distributor->alamat}}" class="form-control" placeholder=".....">
                             <label>Telepon</label>

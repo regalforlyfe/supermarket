@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Pasok;
+use App\Barang;
+use App\Distributor;
 
 class PasokController extends Controller
 {
@@ -31,7 +33,9 @@ class PasokController extends Controller
      */
     public function create()
     {
-        return view('pasok.create');
+        $data = Distributor::all();
+        $data2 = Barang::all();
+        return view('pasok.create')->with('distributor',$data);
     }
 
     /**
@@ -43,15 +47,17 @@ class PasokController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id_distributor'=>'required',
+            'id_barang'=>'required',
             'jumlah'=>'required',
         ]);
-        $pasok = new Post([
+        $pasok = new Pasok([
+            'id_distributor' => $request->input('nama_distributor'),
+            'id_barang' => $request->input('nama_barang'),
             'jumlah' => $request->input('jumlah'),
-            'id_distributor' => $request->input('id_distributor'),
-            'id_barang' => $request->input('id_barang'),
         ]);
         $pasok->save();
-        return redirect('post');
+        return redirect('pasok');
     }
 
     /**
@@ -87,12 +93,16 @@ class PasokController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'id_distributor'=>'required',
+            'id_barang'=>'required',
             'jumlah'=>'required',
         ]);
-        $data = [
-            'jumlah' => $request->jumlah,
-        ];
-        Kategori::where('id_pasok', $id)->update($data);
+        $pasok = new Pasok([
+            'id_distributor' => $request->input('nama_distributor'),
+            'id_barang' => $request->input('nama_barang'),
+            'jumlah' => $request->input('jumlah'),
+        ]);
+        Pasok::where('id_pasok', $id)->update($data);
         return redirect('pasok');
     }
 

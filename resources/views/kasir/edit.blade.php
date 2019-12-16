@@ -8,12 +8,16 @@
                 <i class="fas fa-table"></i>
                 Edit Pasok</div>
                 <div class="card-body">
-                    <form action="{{route('pasok.update',$pasok->id_pasok)}}" method="POST">
+                    <form action="{{route('kasir.update',$kasir->id_kasir)}}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
-                            <label>Jumlah</label>
-                            <input type ="text" name="jumlah" value="{{$pasok->jumlah}}" class="form-control" placeholder=".....">
+                            <label>Nama Kasir</label>
+                            <input type ="text" name="nama_kasir" value="{{$kasir->nama_kasir}}" class="form-control" placeholder=".....">
+                            <label>Alamat</label>
+                            <input type ="text" name="alamat" value="{{$kasir->alamat}}" class="form-control" placeholder=".....">
+                            <label>Telepon</label>
+                            <input type ="text" name="telepon" value="{{$kasir->telepon}}" class="form-control" placeholder=".....">
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan </button>
                     </br>

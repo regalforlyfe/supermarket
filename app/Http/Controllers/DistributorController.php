@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Distributor;
-use Illuminate\Support\Facades\DB;
 
 class DistributorController extends Controller
 {
@@ -26,7 +25,7 @@ class DistributorController extends Controller
      */
     public function create()
     {
-        return view('tambahdistributor');
+        return view('distributor.create');
     }
 
     /**
@@ -37,15 +36,18 @@ class DistributorController extends Controller
      */
     public function store(Request $request)
     {
-        Distributor::updateOrCreate(
-            ['id_distributor' => $request->id_distributor],
-            [
-                'nama_distributor' => $request->nama,
-                'alamat' => $request->alamat,
-                'telepon' => $request->telepon
-                ]
-            );
-            return redirect("/distributor");
+            $request->validate([
+                'nama_distributor'=>'required',
+                'alamat'=>'required',
+                'telepon'=>'required',
+            ]);
+            $distributor = new Distributor([
+                'nama_distributor' => $request->input('nama_distributor'),
+                'alamat' => $request->input('alamat'),
+                'telepon' => $request->input('telepon'),
+            ]);
+            $distributor->save();
+            return redirect('distributor');
                 
     }
 
@@ -68,9 +70,9 @@ class DistributorController extends Controller
      */
     public function edit($id)
     {
-        $data = DB::table('distributor')->where('id_distributor',$id)->get();
-        // $data = Distributor::find($id);
-        return view('editdistributor')->with('data',$data);
+        $data = Distributor::where('id_distributor',"=",$id)->firstOrFail();
+        return view('distributor.edit')->with('distributor',$data);
+
     }
 
     /**
@@ -92,7 +94,7 @@ class DistributorController extends Controller
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
         ];
-        Distributor::where('id_distributor', $id)->update($data);
+        Distributor::where('id_distributor',$id)->update($data);
         return redirect('distributor');
     }
 

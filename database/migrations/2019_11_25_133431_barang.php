@@ -15,7 +15,7 @@ class Barang extends Migration
     {
         Schema::create('barang', function (Blueprint $table) {
             $table->bigIncrements('id_barang');
-            $table->string('nama');
+            $table->string('nama_barang');
             $table->integer('stok');
             $table->integer('hargaPokok');
             $table->integer('hargaJual');

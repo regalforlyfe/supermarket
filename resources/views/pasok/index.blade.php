@@ -7,7 +7,7 @@
                 <i class="fas fa-table"></i>
                 Data Table Pasok</div>
                 <div class="card-body">
-                <a href="" class="float-left btn btn-primary">Tambah</a>
+                <a href="{{route('pasok.create')}}" class="float-left btn btn-primary">Tambah</a>
                   
                   <div class="table-responsive">
                     <table class="table">
@@ -26,7 +26,7 @@
                         <tr>
                             <td>{{$value->id_pasok}}</td>
                             <td>{{$value->nama_distributor}}</td>
-                            <td>{{$value->nama}}</td>
+                            <td>{{$value->nama_barang}}</td>
                             <td>{{$value->jumlah}}</td>
                             <td width="1">
                             <div class="btn-group">
