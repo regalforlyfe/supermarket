@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         //factory(Kasir::class,20)->create();
         //factory(Barang::class,20)->create();
         //factory(Pasok::class,20)->create();
-        factory(Penjualan::class,20)->create();
-        //factory(Distributor::class,20)->create();
+        // factory(Penjualan::class,20)->create();
+        factory(Distributor::class,20)->create();
     }
 }

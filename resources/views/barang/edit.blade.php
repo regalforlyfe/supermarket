@@ -6,7 +6,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                 <i class="fas fa-table"></i>
-                Edit Pasok</div>
+                Edit Barang</div>
                 <div class="card-body">
                     <form action="{{route('barang.update',$barang->id_barang)}}" method="POST">
                         @method('PUT')

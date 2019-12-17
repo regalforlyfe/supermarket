@@ -31,11 +31,11 @@ class PasokController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Pasok $pasok)
     {
-        $data = Distributor::all();
-        $data2 = Barang::all();
-        return view('pasok.create')->with('distributor',$data);
+        $distributor = Distributor::all();
+        $barang = Barang::all();
+        return view('pasok.create', compact('pasok', 'distributor', 'barang'));
     }
 
     /**
