@@ -8658,7 +8658,7 @@ body {
   line-height: 1.5;
   color: #000;
   text-align: left;
-  background-color: #fff;
+  background-color: #a2c1f2;
 }
 
 [tabindex="-1"]:focus {
@@ -20594,7 +20594,7 @@ dl li {
 }
 
 .content-wrapper {
-  background: #dddce1;
+  background: #a2c1f2;
   padding: 1.5rem 2.5rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -20610,7 +20610,7 @@ dl li {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 70px);
-  background: #dddce1;
+  background: #ffda6b;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   padding: 0;
@@ -20801,7 +20801,7 @@ dl li {
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #656565;
+  color: #ffda6b;
   padding: 0.7rem 1rem;
   position: relative;
   font-size: 0.875rem;

@@ -26,7 +26,7 @@
                         <tr>
                             <td>{{$value->id_pasok}}</td>
                             <td>{{$value->nama_distributor}}</td>
-                            <td>{{$value->nama}}</td>
+                            <td>{{$value->nama_barang}}</td>
                             <td>{{$value->jumlah}}</td>
                             <td width="1">
                             <div class="btn-group">

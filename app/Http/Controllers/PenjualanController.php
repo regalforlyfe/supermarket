@@ -36,7 +36,7 @@ class PenjualanController extends Controller
     {
         $barang = Barang::all();
         $kasir = Kasir::all();
-        return view('penjualan.create', compact('penjualan','barang', 'kasir'));
+        return view('penjualan.create', compact('penjualan','barang', 'kasir',$barang,$kasir));
     }
 
     /**
@@ -48,18 +48,18 @@ class PenjualanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_barang'=>'required',
-            'id_kasir'=>'required',
+            'nama_barang'=>'required',
+            'nama_kasir'=>'required',
             'jumlah'=>'required',
             'total'=>'required',
         ]);
-        $pasok = new Pasok([
+        $penjualan = new Penjualan([
             'id_barang' => $request->input('nama_barang'),
             'id_kasir' => $request->input('nama_kasir'),
             'jumlah' => $request->input('jumlah'),
             'total' => $request->input('total'),
         ]);
-        $pasok->save();
+        $penjualan->save();
         return redirect('penjualan');
     }
 
@@ -96,14 +96,10 @@ class PenjualanController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id_barang'=>'required',
-            'id_kasir'=>'required',
             'jumlah'=>'required',
             'total'=>'required',
         ]);
-        $penjualan = new Penjualan([
-            'id_barang' => $request->input('nama_barang'),
-            'id_kasir' => $request->input('nama_kasir'),
+        $data = ([
             'jumlah' => $request->input('jumlah'),
             'total' => $request->input('total'),
         ]);

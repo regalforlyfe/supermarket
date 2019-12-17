@@ -35,7 +35,7 @@ class PasokController extends Controller
     {
         $distributor = Distributor::all();
         $barang = Barang::all();
-        return view('pasok.create', compact('pasok', 'distributor', 'barang'));
+        return view('pasok.create', compact('pasok', 'distributor', 'barang',$distributor,$barang));
     }
 
     /**
@@ -47,8 +47,8 @@ class PasokController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_distributor'=>'required',
-            'id_barang'=>'required',
+            'nama_distributor'=>'required',
+            'nama_barang'=>'required',
             'jumlah'=>'required',
         ]);
         $pasok = new Pasok([
@@ -93,13 +93,9 @@ class PasokController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id_distributor'=>'required',
-            'id_barang'=>'required',
             'jumlah'=>'required',
         ]);
-        $pasok = new Pasok([
-            'id_distributor' => $request->input('nama_distributor'),
-            'id_barang' => $request->input('nama_barang'),
+        $data = ([
             'jumlah' => $request->input('jumlah'),
         ]);
         Pasok::where('id_pasok', $id)->update($data);
